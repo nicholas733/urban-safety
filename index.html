@@ -1,53 +1,203 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Urban Safety – Coming Soon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Urban Safety</title>
+  <meta name="description" content="Team Zebrachicken" />
+  <meta property="og:title" content="Urban Safety" />
+  <meta property="og:description" content="322" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://urban-safety.com" />
+  <meta property="og:image" content="/assets/img/og-image.jpg" />
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body { font-family: sans-serif; text-align: center; margin: 0; padding: 40px; background: #f8f9fa; }
-    h1 { margin-top: 40px; }
-    #countdown { font-size: 2em; margin: 20px 0; }
-    form { margin: 20px auto; max-width: 300px; }
-    input[type=email] { width: 100%; padding: 10px; margin-bottom: 10px; }
-    input[type=submit] { width: 100%; padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
-    .logo { max-width: 200px; margin: 20px auto; }
+    /* Optional small tweaks beyond Tailwind */
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.85); }
   </style>
 </head>
-<body>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <!-- Top bar -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-3">
+        <a href="#" class="flex items-center gap-3">
+          <img id="logo" src="/assets/img/logo.svg" alt="Urban Safety logo" class="h-8 w-8" onerror="this.style.display='none'" />
+          <span class="text-xl font-semibold tracking-tight">Urban Safety</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-blue-600">About</a>
+          <a href="#features" class="hover:text-blue-600">Features</a>
+          <a href="#countdown" class="hover:text-blue-600">Next Launch</a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 hover:bg-gray-100">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-  <div class="logo">
-    <img src="logo.png" alt="Urban Safety Logo" width="200">
-  </div>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10">
+      <img src="/assets/img/hero.jpg" alt="City background" class="h-full w-full object-cover" onerror="this.remove()" />
+      <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/75 to-white"></div>
+    </div>
 
-  <h1>🚧 Urban Safety is Coming Soon</h1>
-  <p id="countdown">Loading countdown...</p>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            Customer Driven
+          </h1>
+          <p class="mt-5 text-lg text-gray-700 max-w-prose">
+            Outcome Focused
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#features" class="rounded-xl bg-blue-600 text-white px-5 py-3 font-medium shadow hover:bg-blue-700">
+              Explore Solutions
+            </a>
+            <a href="#contact" class="rounded-xl border px-5 py-3 font-medium hover:bg-gray-100">
+              Get Updates
+            </a>
+          </div>
+          <p class="mt-4 text-xs text-gray-500">No tracking. No spam</p>
+        </div>
+
+        <div class="glass rounded-3xl shadow-xl p-6 md:p-8">
+          <h2 class="text-xl font-semibold">Next milestone</h2>
+          <p class="text-gray-600">More... so much more...</p>
+          <div id="countdown" data-target="2025-10-01T12:00:00-04:00" class="mt-6 grid grid-cols-4 gap-3 text-center">
+            <div class="rounded-2xl border p-4">
+              <div class="text-3xl font-bold" id="cd-days">--</div>
+              <div class="text-xs uppercase tracking-wide text-gray-500">Days</div>
+            </div>
+            <div class="rounded-2xl border p-4">
+              <div class="text-3xl font-bold" id="cd-hours">--</div>
+              <div class="text-xs uppercase tracking-wide text-gray-500">Hours</div>
+            </div>
+            <div class="rounded-2xl border p-4">
+              <div class="text-3xl font-bold" id="cd-mins">--</div>
+              <div class="text-xs uppercase tracking-wide text-gray-500">Minutes</div>
+            </div>
+            <div class="rounded-2xl border p-4">
+              <div class="text-3xl font-bold" id="cd-secs">--</div>
+              <div class="text-xs uppercase tracking-wide text-gray-500">Seconds</div>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Edit the <code>data-target</code> date/time to your launch window.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight">What we’re developing...</h2>
+        <p class="mt-3 text-gray-600">Fast, lightweight solutions focused on action and transparency.</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl border p-6">
+          <h3 class="font-semibold">Alerts</h3>
+          <p class="mt-2 text-sm text-gray-600">Only when zebras turn into chickens.</p>
+        </article>
+        <article class="rounded-2xl border p-6">
+          <h3 class="font-semibold">Open Data Viewer</h3>
+          <p class="mt-2 text-sm text-gray-600">Simple dashboards for datasets with context and caveats.</p>
+        </article>
+        <article class="rounded-2xl border p-6">
+          <h3 class="font-semibold">How‑Tos</h3>
+          <p class="mt-2 text-sm text-gray-600">Clear, no‑nonsense guides covering zebras and chickens.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight">Why Urban Safety?</h2>
+          <p class="mt-4 text-gray-700">I mean... really... why not?
+          </p>
+          <ul class="mt-6 space-y-3 text-gray-700 list-disc list-inside">
+            <li>No ads. No trackers.</li>
+            <li>Plain‑English explanations and evidence‑based tips.</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl border p-6">
+          <h3 class="font-semibold">Roadmap (high‑level)</h3>
+          <ol class="mt-3 space-y-2 text-sm text-gray-700 list-decimal list-inside">
+            <li>Public beta: alerts + guides</li>
+            <li>Data explorer MVP</li>
+            <li>Community partner pilots</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Updates -->
+  <section id="contact" class="bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight">Stay in the loop</h2>
+        <p class="mt-2 text-gray-600">Prefer not to use Mailchimp? Use a simple mail link for now. Replace the address below when you’re ready.</p>
+      </div>
+      <div class="mt-6">
+        <a href="mailto:updates@urban-safety.com?subject=Subscribe%20me&body=Please%20add%20me%20to%20Urban%20Safety%20updates." class="inline-flex items-center rounded-xl bg-blue-600 px-5 py-3 font-medium text-white shadow hover:bg-blue-700">Email us to subscribe</a>
+        <p class="mt-3 text-xs text-gray-500">Later you can swap in a proper form handler (e.g., your own backend, Formspree, Buttondown, etc.).</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 text-sm text-gray-600 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <p>© <span id="year"></span> Urban Safety. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-blue-600" href="/privacy.html">Privacy</a>
+        <a class="hover:text-blue-600" href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    const launchDate = new Date("2025-10-01T00:00:00");
-    const countdownEl = document.getElementById("countdown");
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = launchDate - now;
+    // Countdown logic (reads ISO 8601 with timezone from data-target)
+    (function () {
+      const el = document.getElementById('countdown');
+      if (!el) return;
+      const targetStr = el.getAttribute('data-target');
+      if (!targetStr) return;
+      const target = new Date(targetStr);
 
-      if (diff <= 0) {
-        countdownEl.textContent = "We're live!";
-        return;
+      const ids = { d: 'cd-days', h: 'cd-hours', m: 'cd-mins', s: 'cd-secs' };
+      function pad(n){ return String(n).padStart(2,'0'); }
+
+      function tick(){
+        const now = new Date();
+        let diff = Math.max(0, target - now);
+        const sec = Math.floor(diff / 1000);
+        const days = Math.floor(sec / 86400);
+        const hours = Math.floor((sec % 86400) / 3600);
+        const mins = Math.floor((sec % 3600) / 60);
+        const secs = sec % 60;
+        document.getElementById(ids.d).textContent = days;
+        document.getElementById(ids.h).textContent = pad(hours);
+        document.getElementById(ids.m).textContent = pad(mins);
+        document.getElementById(ids.s).textContent = pad(secs);
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+      tick();
+      setInterval(tick, 1000);
+    })();
   </script>
-
 </body>
 </html>
-
